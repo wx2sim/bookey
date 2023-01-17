@@ -22,7 +22,7 @@ class _BookScreenState extends State<BookScreen> {
         body: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+              margin: EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.shade200,
@@ -64,14 +64,15 @@ class _BookScreenState extends State<BookScreen> {
                       scrollDirection: Axis.vertical,
                       physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
-                      padding: EdgeInsets.only(left: 15, right: 15),
+                      padding: EdgeInsets.only(left: 15, right: 15, bottom: 40),
                       children: getNewBooks()),
                   ListView(
-                      scrollDirection: Axis.vertical,
-                      physics: ClampingScrollPhysics(),
-                      shrinkWrap: true,
-                      padding: EdgeInsets.only(left: 15, right: 15),
-                      children: getPopularBooks()),
+                    scrollDirection: Axis.vertical,
+                    physics: ClampingScrollPhysics(),
+                    shrinkWrap: true,
+                    padding: EdgeInsets.only(left: 15, right: 15, bottom: 40),
+                    children: getPopularBooks(),
+                  ),
                 ],
               ),
             ),

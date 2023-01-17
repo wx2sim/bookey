@@ -10,33 +10,15 @@ class BookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = 100, _height = 120;
+    double _width = 120, _height = 150;
     return Container(
         padding: EdgeInsets.only(top: 20),
         child: Row(
           children: [
             Stack(children: [
               Container(
-                  width: _width,
-                  height: _height,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: shadowColor.withOpacity(0.1),
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                        offset: Offset(1, 1), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Container(
-                    width: _width / 2,
-                    height: _height / 2,
-                  )),
-              Container(
                 width: _width,
-                height: _height,
+                height: _height * 1.2,
                 padding: EdgeInsets.all(8),
                 child: AvatarImage(
                   book.image,
@@ -46,7 +28,7 @@ class BookItem extends StatelessWidget {
               )
             ]),
             SizedBox(
-              width: 18,
+              width: 8,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +39,7 @@ class BookItem extends StatelessWidget {
                   overflow: TextOverflow.clip,
                   softWrap: false,
                   maxLines: 2,
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
                   height: 12,
@@ -67,7 +49,7 @@ class BookItem extends StatelessWidget {
                   TextSpan(
                       text: book.price,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: primary,
                           fontWeight: FontWeight.w500)),
                   TextSpan(text: "   "),
@@ -80,7 +62,9 @@ class BookItem extends StatelessWidget {
                           fontWeight: FontWeight.w500)),
                 ]))
               ],
-            )
+            ),
+            Spacer(),
+            Icon(Icons.info_outline, color: primary)
           ],
         ));
   }

@@ -19,7 +19,9 @@ class BookCategory extends StatelessWidget {
     return Container(
         child: Column(children: [
       GestureDetector(
-        onTap: () {},
+        onTap: () {
+          print(categorie.title);
+        },
         child: Container(
           margin: EdgeInsets.only(right: 16),
           child: Stack(

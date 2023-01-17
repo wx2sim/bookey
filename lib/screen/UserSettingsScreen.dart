@@ -16,86 +16,91 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
       isChangePass = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SettingsList(
-        sections: [
-          SettingsSection(
-            title: Text('Common'),
-            tiles: [
-              SettingsTile(
-                title: Text('Language'),
-                trailing: Text('English'),
-                leading: Icon(Icons.language),
-                onPressed: (BuildContext context) {},
-              ),
-              SettingsTile.switchTile(
-                title: Text('Use System Theme'),
-                leading: Icon(Icons.phone_android),
-                onToggle: (value) {
-                  setState(() {
-                    isSwitched = value;
-                  });
-                },
-                initialValue: null,
-              ),
-            ],
-          ),
-          SettingsSection(
-            title: Text('Account'),
-            tiles: [
-              SettingsTile(
-                title: Text('Phone number'),
-                leading: Icon(Icons.phone),
-                onPressed: (BuildContext context) {},
-              ),
-              SettingsTile(
-                title: Text('Email'),
-                leading: Icon(Icons.email),
-                onPressed: (BuildContext context) {},
-              ),
-              SettingsTile(
-                title: Text('Sign out'),
-                leading: Icon(Icons.logout),
-                onPressed: (BuildContext context) {},
-              ),
-            ],
-          ),
-          SettingsSection(
-            title: Text('Security'),
-            tiles: [
-              SettingsTile.switchTile(
-                title: Text('Lock app in background'),
-                leading: Icon(Icons.phonelink_lock_sharp),
-                onToggle: (value) {
-                  setState(() {
-                    isLockApp = value;
-                  });
-                },
-                initialValue: null,
-              ),
-              SettingsTile.switchTile(
-                title: Text('Use fingerprint'),
-                leading: Icon(Icons.fingerprint),
-                onToggle: (value) {
-                  setState(() {
-                    isFingerPrintEnabled = value;
-                  });
-                },
-                initialValue: null,
-              ),
-              SettingsTile.switchTile(
-                title: Text('Change Password'),
-                leading: Icon(Icons.lock_rounded),
-                onToggle: (value) {
-                  setState(() {
-                    isChangePass = value;
-                  });
-                },
-                initialValue: null,
-              ),
-            ],
-          ),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: SettingsList(
+          sections: [
+            SettingsSection(
+              title: Text('Common', style: TextStyle(color: primary)),
+              tiles: [
+                SettingsTile(
+                  title: Text('Language'),
+                  trailing: Text('English'),
+                  leading: Icon(
+                    Icons.language,
+                    color: appBgColor,
+                  ),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile.switchTile(
+                  title: Text('Use System Theme'),
+                  leading: Icon(Icons.phone_android),
+                  onToggle: (value) {
+                    setState(() {
+                      isSwitched = value;
+                    });
+                  },
+                  initialValue: null,
+                ),
+              ],
+            ),
+            SettingsSection(
+              title: Text('Account', style: TextStyle(color: primary)),
+              tiles: [
+                SettingsTile(
+                  title: Text('Phone number'),
+                  leading: Icon(Icons.phone),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile(
+                  title: Text('Email'),
+                  leading: Icon(Icons.email),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile(
+                  title: Text('Sign out'),
+                  leading: Icon(Icons.logout),
+                  onPressed: (BuildContext context) {},
+                ),
+              ],
+            ),
+            SettingsSection(
+              title: Text('Security', style: TextStyle(color: primary)),
+              tiles: [
+                SettingsTile.switchTile(
+                  title: Text('Lock app in background'),
+                  leading: Icon(Icons.phonelink_lock_sharp),
+                  onToggle: (value) {
+                    setState(() {
+                      isLockApp = !value;
+                    });
+                  },
+                  initialValue: null,
+                ),
+                SettingsTile.switchTile(
+                  title: Text('Use fingerprint'),
+                  leading: Icon(Icons.fingerprint),
+                  onToggle: (value) {
+                    setState(() {
+                      isFingerPrintEnabled = value;
+                    });
+                  },
+                  initialValue: null,
+                ),
+                SettingsTile.switchTile(
+                  title: Text('Change Password'),
+                  leading: Icon(Icons.lock_rounded),
+                  onToggle: (value) {
+                    setState(() {
+                      isChangePass = value;
+                    });
+                  },
+                  initialValue: null,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

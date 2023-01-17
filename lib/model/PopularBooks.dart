@@ -35,25 +35,25 @@ final List<PopularBooks> popularBooksInfo = [
   PopularBooks(
       title: "The Happy Morning",
       image:
-          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/teal-and-orange-fantasy-book-cover-design-template-056106feb952bdfb7bfd16b4f9325c11.jpg",
+          "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1246347773i/5084733.jpg",
       price: "1200 DZD",
       originalPrice: "2000 DZD"),
   PopularBooks(
       title: "The Beauty of Living Twice",
       image:
-          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/teal-and-orange-fantasy-book-cover-design-template-056106feb952bdfb7bfd16b4f9325c11.jpg",
+          "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1607102266-41AyT1XeDaL.jpg",
       price: "1200 DZD",
       originalPrice: "2000 DZD"),
   PopularBooks(
       title: "Undersea World",
       image:
-          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/teal-and-orange-fantasy-book-cover-design-template-056106feb952bdfb7bfd16b4f9325c11.jpg",
+          "https://www.edrawsoft.com/templates/images/seaworld-children-book-cover.png",
       price: "1200 DZD",
       originalPrice: "2000 DZD"),
   PopularBooks(
       title: "The Secrets",
       image:
-          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/teal-and-orange-fantasy-book-cover-design-template-056106feb952bdfb7bfd16b4f9325c11.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwf6U8c_AwOwZvz9CjfMEzikpESGwcNqSuxQ&usqp=CAU",
       price: "1200 DZD",
       originalPrice: "2000 DZD"),
 ];

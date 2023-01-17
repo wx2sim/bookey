@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import '/model/Books.dart';
 
 class LatestBooks extends Books {
@@ -48,8 +46,7 @@ final List<LatestBooks> latestBooksInfo = [
       originalPrice: "1800 DZD"),
   LatestBooks(
       title: "Snow at Sunset",
-      image:
-          "https://wepik.com/storage/previews/1853935/conversions/minimalist-snow-winter-book-cover-r-908311156page1-thumb.jpg",
+      image: "https://content.wepik.com/statics/10349174/preview-page0.jpg",
       price: "1000 DZD",
       originalPrice: "1300 DZD"),
   LatestBooks(

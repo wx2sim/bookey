@@ -13,52 +13,40 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 300,
+      width: 150,
+      height: 320,
       margin: EdgeInsets.only(right: 15),
       padding: EdgeInsets.only(left: 1, right: 1, top: 20, bottom: 5),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: shadowColor.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 1,
-            offset: Offset(1, 1), // changes position of shadow
-          ),
-        ],
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         children: [
           AvatarImage(
             popularBook.image,
-            height: 190,
-            width: 120,
-            radius: 5,
+            height: 220,
+            width: 140,
+            radius: 10,
             isSVG: false,
           ),
-          SizedBox(
-            height: 15,
-          ),
+          Spacer(),
           Text(popularBook.title,
-              maxLines: 2,
+              maxLines: 3,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   color: Colors.black,
                   fontWeight: FontWeight.w600)),
-          SizedBox(
-            height: 10,
-          ),
+          Spacer(),
           RichText(
               textAlign: TextAlign.center,
               text: TextSpan(children: [
                 TextSpan(
                     text: popularBook.price,
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         color: primary,
                         fontWeight: FontWeight.w500)),
                 TextSpan(text: "    "),
@@ -66,7 +54,7 @@ class BookCard extends StatelessWidget {
                     text: popularBook.originalPrice,
                     style: TextStyle(
                         color: Colors.grey,
-                        fontSize: 16,
+                        fontSize: 14,
                         decoration: TextDecoration.lineThrough,
                         fontWeight: FontWeight.w500)),
               ]))

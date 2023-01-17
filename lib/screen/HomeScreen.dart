@@ -1,7 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:online_book_store/model/categoriesList.dart';
+import 'package:online_book_store/screen/UserSettingsScreen.dart';
 import 'package:online_book_store/widgets/book_categories.dart';
+import 'package:online_book_store/widgets/desc_card.dart';
+import 'package:vertical_card_pager/vertical_card_pager.dart';
 import '/model/LatestBooks.dart';
 import '/model/PopularBooks.dart';
 import '/utils/utility.dart';
@@ -29,31 +32,26 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  SizedBox(
-                    height: 60,
-                  ),
+                  Spacer(),
                   Container(
                     child: getHeaderBlock(),
                   ),
                   Positioned(
-                      top: 140,
+                      top: 120,
                       left: 0,
                       right: 0,
                       child: Container(
-                        height: 300,
                         child: getPopularBooks(),
                       )),
                 ],
               ),
             ),
-            SizedBox(
-              height: 40,
-            ),
+            SizedBox(height: 120),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                    padding: EdgeInsets.only(left: 20, right: 15, top: 10),
                     child: Text(
                       "Categories",
                       style:
@@ -75,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                    padding: EdgeInsets.only(left: 20, right: 15, top: 10),
                     child: Text(
                       "Latest Books",
                       style:
@@ -104,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Container(
           width: double.infinity,
-          height: 250,
+          height: 280,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(60)),
               color: primary),
@@ -115,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 25,
               ),
               Container(
-                margin: EdgeInsets.only(left: 35, right: 15),
+                margin: EdgeInsets.only(left: 20, right: 15),
                 child: Text(
                   "Hi, Wassim",
                   style: TextStyle(
@@ -128,9 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(left: 35, right: 15),
+                margin: EdgeInsets.only(left: 20, right: 15),
                 child: Text(
-                  "Welcome to Bookey!",
+                  "Welcome to Anavrin",
                   style: TextStyle(
                       color: secondary,
                       fontSize: 15,
@@ -141,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 15,
               ),
               Container(
-                  padding: EdgeInsets.only(left: 15, right: 15),
+                  padding: EdgeInsets.only(left: 20, right: 15),
                   child: Text(
                     "Popular Books",
                     style: TextStyle(
@@ -156,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         Container(
-          height: 150,
+          height: 50,
           color: primary,
           child: Container(
             decoration: BoxDecoration(
@@ -171,21 +169,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   getPopularBooks() {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(bottom: 5, left: 15),
+      padding: EdgeInsets.only(bottom: 5, left: 20),
       scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(
-            popularBooksInfo.length,
-            (index) => BookCard(
-                  popularBook: popularBooksInfo[index],
-                )),
+      child: GestureDetector(
+        onTap: () {
+          // ignore: unnecessary_new
+          return OpenBottomSheet();
+        },
+        child: Row(
+          children: List.generate(
+              popularBooksInfo.length,
+              (index) => BookCard(
+                    popularBook: popularBooksInfo[index],
+                  )),
+        ),
       ),
     );
   }
 
   getLatestBooks() {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(bottom: 5),
+      padding: EdgeInsets.only(
+        bottom: 5,
+      ),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(latestBooksInfo.length,
@@ -196,12 +202,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
   getcategories() {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(bottom: 5),
+      padding: EdgeInsets.only(bottom: 5, left: 5),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(bookCategoriesInfo.length,
             (index) => BookCategory(categorie: bookCategoriesInfo[index])),
       ),
     );
+  }
+
+  OpenBottomSheet() {
+    return showModalBottomSheet(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        context: this.context,
+        enableDrag: true,
+        isDismissible: true,
+        isScrollControlled: true,
+        builder: (context) {
+          return FractionallySizedBox(
+              heightFactor: 0.875, child: DescriptionCard());
+        });
   }
 }
